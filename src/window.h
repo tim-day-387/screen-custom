@@ -237,7 +237,7 @@ struct win
   char	 w_vbwait;
   char	 w_norefresh;		/* dont redisplay when switching to that win */
 #ifdef RXVT_OSC
-  char	 w_xtermosc[5][MAXSTR];	/* special xterm/rxvt escapes */
+  char	 w_xtermosc[5][2560];	/* special xterm/rxvt escapes */
 #endif
   int    w_mouse;		/* mouse mode 0,9,1000 */
   int    w_extmouse;		/* extended mouse mode 0,1006 */
