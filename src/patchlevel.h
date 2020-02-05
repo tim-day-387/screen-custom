@@ -532,7 +532,7 @@
 
 #define ORIGIN "GNU"
 #define REV 4
-#define VERS 7
+#define VERS 8
 #define PATCHLEVEL 0
-#define DATE "02-Oct-19"
+#define DATE "05-Feb-20"
 #define STATE ""

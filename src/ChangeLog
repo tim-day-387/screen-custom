@@ -1,3 +1,11 @@
+Version 4.8.0 (05/02/2020)
+  * Improve startup time by only polling for files to close
+  Fixes:
+	- Fix for segfault if termcap doesn't have Km entry
+	- Make screen exit code be 0 when checking --version
+	- Fix potential memory corruption when using OSC 49
+
+
 Version 4.7.0 (02/10/2019)
   * Add support for SGR (1006) mouse mode
   * Add support for OSC 11
