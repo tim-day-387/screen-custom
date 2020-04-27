@@ -1068,7 +1068,7 @@ int aflag;
 	{
 	  if (i >= T_KEYPAD)	/* don't put keypad codes in TERMCAP */
 	    continue;		/* - makes it too big */
-#if (TERMCAP_BUF < 1024)
+#if (TERMCAP_BUFSIZE < 1024)
           if (i >= T_FEXTRA && i < T_BACKTAB) /* also skip extra vt220 keys */
             continue;
           if (i > T_BACKTAB && i < T_NAVIGATE) /* more vt220 keys */
