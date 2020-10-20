@@ -1191,7 +1191,14 @@ int main(int ac, char** av)
     eexit(0);
   }
   signal(SIG_BYE, AttacherFinit);	/* prevent races */
+
   if (cmdflag) {
+
+#ifdef MULTIUSER
+    if (multi)
+      real_uid = multi_uid;
+#endif
+
     /* attach_tty is not mandatory */
     SetTtyname(false, &st);
     if (!*av)
