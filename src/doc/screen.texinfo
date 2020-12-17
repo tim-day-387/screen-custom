@@ -504,7 +504,7 @@ variable @code{$SYSSCREENRC} (this override feature may be disabled at
 compile-time).  The user specific screenrc file is
 searched for in @code{$SCREENRC}, then 
 @file{@code{$HOME}/.screenrc}.  The command line option @samp{-c}
-specifies which file to use (@pxref{Invoking Screen}.  Commands in these
+specifies which file to use (@pxref{Invoking Screen}).  Commands in these
 files are used to set options, bind commands to keys, and to
 automatically establish one or more windows at the beginning of
 your @code{screen} session.  Commands are listed one per line, with
