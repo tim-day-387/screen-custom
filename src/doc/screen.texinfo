@@ -3870,7 +3870,7 @@ paste buffer exists once for every user.
 (none)@*
 Stuff the string @var{string} in the input buffer of the current window.
 This is like the @code{paste} command, but with much less overhead.
-Without a paramter, @code{screen} will prompt for a string to stuff.
+Without a parameter, @code{screen} will prompt for a string to stuff.
 You cannot paste large buffers with the @code{stuff} command. It is most
 useful for key bindings. @xref{Bindkey}.
 @end deffn
