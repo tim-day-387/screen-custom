@@ -45,7 +45,7 @@
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
-static int  is_letter __P((int));
+static int  is_letter __P((char));
 static void nextword __P((int *, int *, int, int));
 static int  linestart __P((int));
 static int  lineend __P((int));
