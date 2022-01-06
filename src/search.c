@@ -145,7 +145,7 @@ matchword(pattern, y, sx, ex)
 char *pattern;
 int y, sx, ex;
 {
-  unsigned char *ip, *cp, *pp, *cpe;
+  unsigned char *cp, *pp, *cpe;
   int cy;
 
   fore = ((struct markdata *)flayer->l_data)->md_window;
