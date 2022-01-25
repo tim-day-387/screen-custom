@@ -1,18 +1,17 @@
-Version 4.8.0 (05/02/2020)
+Version 4.8.0 (05/02/2020):
   * Improve startup time by only polling for files to close
-  Fixes:
+  * Fixes:
 	- Fix for segfault if termcap doesn't have Km entry
 	- Make screen exit code be 0 when checking --version
 	- Fix potential memory corruption when using OSC 49
 
-
-Version 4.7.0 (02/10/2019)
+Version 4.7.0 (02/10/2019):
   * Add support for SGR (1006) mouse mode
   * Add support for OSC 11
   * Update Unicode ambiguous and wide tables to 12.1.0
   * Fixes:
-  - cross-compilation support (bug #43223)
-  - a lot of manpage fixes and cleanups
+	- cross-compilation support (bug #43223)
+	- a lot of manpage fixes and cleanups
 
 Version 4.6.2 (23/10/2017):
   * Fixes:
@@ -62,12 +61,11 @@ Version 4.3.0 (13/06/2015):
   * Introduce Xx string escape showing the executed command of a window
   * Implement dead/zombie window polling, allowing for auto reconnecting
   * Allow setting hardstatus on first line
-
-  New Commands:
-  * 'sort' command sorting windows by title
-  * 'bumpleft', 'bumpright' - manually move windows on window list
-  * 'collapse' removing numbering 'gaps' between windows, by renumbering
-  * 'windows' command now accepts arguments for use with querying
+  * New Commands:
+	- 'sort' command sorting windows by title
+	- 'bumpleft', 'bumpright' - manually move windows on window list
+	- 'collapse' removing numbering 'gaps' between windows, by renumbering
+	- 'windows' command now accepts arguments for use with querying
 
 Version 4.2.1 (28/04/2014):
   * allow for terminal with long $TERM (up to 32 characters)
@@ -79,8 +77,7 @@ Version 4.2.0 (17/04/2014):
   New Commands:
   * 'unbindall' to unbind all commands
   * 'up', 'down', 'left', 'right' sub-commands for 'focus'
-  * 'rendition' to specify rendition to use in caption/hardstatus for
-    window-names that have bell/monitor/silence/so turned on.
+  * 'rendition' to specify rendition to use in caption/hardstatus for window-names that have bell/monitor/silence/so turned on.
   * 'layout', with the following sub-commands
 	- 'title'
 	- 'number'
