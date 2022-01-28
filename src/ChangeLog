@@ -369,8 +369,8 @@ screen 3.0 Patchlevel 6
 =======================
 
 .screenrc:
-  screen now only opens the windows you explicitly ask for. if you 
-  specify none, you still get one window, of course.
+  screen now only opens the windows you explicitly ask for.
+  If you specify none, you still get one window, of course.
 
 screen 3.0. Patchlevel 5
 ========================
@@ -388,7 +388,7 @@ markkeys "string"
   by a colon. Oldchar and newchar are either single ascii characters, 
   or the two character sequence ^x, where x is an ascii character, or
   a 3 digit octal value prepended with '\'. the string "\040=.:^M=q"
-  rebinds '.' to set marks, and the return rey will abort copy mode.
+  rebinds '.' to set marks, and the return key will abort copy mode.
 
 set scrollback 100
   resizes the scrollback history buffer to 100 lines. a default of 50
@@ -423,7 +423,7 @@ screen -wipe
 
 ^A : set vbell_msg "Wuff Wuff"
 
-Thousand enhancements: help resizible, copy'n'paste in main
+Thousand enhancements: help resizable, copy'n'paste in main
   socket loop, and no more '\0' hackin'. :WS=\E8;%d;%dt:
 
 screen can now resize windows under sunview.
@@ -451,12 +451,12 @@ pow_detach_msg "text string"
   bind 'O' set login off
   is valid in your .screenrc as well as typed at the ':' prompt.
   a bonus is ":set all" which is synonym to ":help".
-  At the Colon prompt also KeyNames can be entered, alothough that makes
+  At the Colon prompt also KeyNames can be entered, although that makes
   not always sense.
 
 ^A x uses a builtin lockprg, if 
   a) we don't find our lockprg, or
-  b) user supplies us with the environmet variable LOCKPRG set to "builtin"
+  b) user supplies us with the environment variable LOCKPRG set to "builtin"
   the builtin locks until your login password is typed. on systems using
   "shadow password files" you are prompted for a password.
 
@@ -477,7 +477,7 @@ bug in SetForeWindow fixed.
 
 rare markroutine bug fixed.
 
-we dont open every file the attacher tells us.
+we don't open every file the attacher tells us.
 
 we have now our wonderful "Wuff, Wuff" visual_bell
 
