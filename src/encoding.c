@@ -35,7 +35,7 @@
 static int encmatch(char *, char *);
 static int recode_char(int, int, int);
 static int recode_char_to_encoding(int, int);
-static void comb_tofront(int, int);
+static void comb_tofront(int);
 static int recode_char_dw(int, int *, int, int);
 static int recode_char_dw_to_encoding(int, int *, int);
 
@@ -1044,6 +1044,8 @@ bool utf8_isdouble(uint32_t c)
 		{0x30000, 0x3FFFD},
 	};
 
+	if (c >= 0xdf00 && c <= 0xdfff)
+		return 1;			/* dw combining sequence */
 	return ((bisearch(c, wide, ARRAY_SIZE(wide) - 1)) ||
 		(cjkwidth && bisearch(c, ambiguous, ARRAY_SIZE(ambiguous) - 1)));
 }
@@ -1105,9 +1107,10 @@ bool utf8_iscomb(uint32_t c)
 	return bisearch(c, combining, ARRAY_SIZE(combining) - 1);
 }
 
-static void comb_tofront(int root, int i)
+static void comb_tofront(int i)
 {
 	for (;;) {
+		int root = i >= 0x700 ? 0x801 : 0x800;
 		combchars[combchars[i]->prev]->next = combchars[i]->next;
 		combchars[combchars[i]->next]->prev = combchars[i]->prev;
 		combchars[i]->next = combchars[root]->next;
@@ -1162,9 +1165,9 @@ void utf8_handle_comb(unsigned int c, struct mchar *mc)
 	if (i == combchars[root]->c2) {
 		/* full, recycle old entry */
 		if (c1 >= 0xd800 && c1 < 0xe000)
-			comb_tofront(root, c1 - 0xd800);
+			comb_tofront(c1 - 0xd800);
 		i = combchars[root]->prev;
-		if (c1 == i + 0xd800) {
+		if (i == 0x800 || i == 0x801 || c1 == i + 0xd800) {
 			/* completely full, can't recycle */
 			mc->image = '?';
 			mc->font = 0;
@@ -1182,7 +1185,7 @@ void utf8_handle_comb(unsigned int c, struct mchar *mc)
 	combchars[i]->c2 = c;
 	mc->image = i & 0xff;
 	mc->font = (i >> 8) + 0xd8;
-	comb_tofront(root, i);
+	comb_tofront(i);
 }
 
 static int encmatch(char *s1, char *s2)
