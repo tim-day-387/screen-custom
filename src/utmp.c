@@ -349,6 +349,16 @@ static int pututslot(slot_t slot, struct utmpx *u, char *host, Window *win)
 			utempter_add_record(win->w_ptyfd, host);
 		else
 			utempter_remove_record(win->w_ptyfd);
+		/*
+		 * As documented in libutempter: "During execution of
+		 * the privileged process spawned by these functions,
+		 * SIGCHLD signal handler will be temporarily set to
+		 * the default action." Thus in case a SIGCHLD has
+		 * been lost, we send a SIGCHLD to oneself in order to
+		 * avoid zombies: https://savannah.gnu.org/bugs/?25089
+		 */
+		kill(getpid(), SIGCHLD);
+
 		return 1;	/* pray for success */
 	}
 #else
